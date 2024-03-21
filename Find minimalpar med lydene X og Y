@@ -1,0 +1,17 @@
+import re
+
+input = open("ordliste.txt", "r", encoding="utf8") #encoding utf-8 sørger for at IPA-tegn genkendes
+text = input.read()
+ordliste = text.split()
+
+lyd1 = "m"
+lyd2 = "n"
+
+#vi tjekker hvert ord i ordlisten
+for ord in ordliste:
+   # vi danner et testord som er det samme som det aktuelle ord i ordlisten, men med lyd1 udskiftet med lyd2
+   # hvis vi fx er kommet til ordet 'mål', danner vi testordet 'nål' for at tjekke om det er et rigtigt ord
+   testord = re.sub(lyd1, lyd2, ord)
+   #HVIS det nye testord er i ordlisten OG testordet er forskelligt fra det aktuelle ord så udskriver vi ordparret
+   if testord in ordliste and testord != ord:
+       print(ord, " ", testord)
