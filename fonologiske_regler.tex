@@ -1,0 +1,40 @@
+% phonrule dokumentation: https://www.ctan.org/pkg/phonrule?lang=en
+%kommentar som ikke kommer med i output
+\documentclass{article}
+\usepackage{phonrule}
+\title{Hej verden!}
+\author{Ruben Schachtenhaufen}
+\date{April 2024}
+\begin{document}
+\maketitle
+\section{Introduktion}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\newline
+
+%grundlæggende fonologisk regel
+\phonb{input}{output}{kontekstfør}{kontekstefter}
+\\ \\ %dobbelt linjeskift
+
+%feature matrix
+\phonfeat{+cons \\ -cont \\ coronal}
+\\ \\
+
+%eksempel
+\phonb{\phonfeat{+cons \\ -cont \\ coronal} }{[+tap]}{\phonfeat{-cons \\ +stress} }{\phonfeat{-cons \\ -stress} } 
+\\ \\
+
+%bemærk forskellen på phonb phonr og phonl, som afgør hvor _ placeres ift. fonologisk kontekst
+\phonb{\phonfeat{+cons \\ -cont \\ coronal} }{[+tap]}{C}{V}
+\\ \\
+
+\phonr{\phonfeat{+cons \\ -cont \\ coronal} }{[+tap]}{V}
+\\ \\
+
+\phonl{\phonfeat{+cons \\ -cont \\ coronal} }{[+tap]}{V}
+\\ \\
+
+%oneof
+\phonc{t}{ts}{\oneof{\phold i \\\phold u}}
+
+\end{document}
